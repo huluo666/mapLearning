@@ -91,6 +91,32 @@
         }
     };
     [_geocoder reverseGeocodeLocation:newLocation completionHandler:handler];
+	
+	
+	
+	/*
+		[_geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error){
+            if ([placemarks count] > 0) {
+                CLPlacemark *foundPlacemark = [placemarks objectAtIndex:0];
+                double lat = newLocation.coordinate.latitude;  //纬度
+                double log = newLocation.coordinate.longitude; //经度
+                NSString *urlLocation = [[NSString alloc] initWithFormat:@"http://www.zdoz.net/api/daohang.aspx?TravelType=walking&startLat=%f&startLng=%f&endLat=%f&endLng=%f", lat, log, lat, log];
+                [self.mapWeb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlLocation]]];
+                NSDictionary *address = foundPlacemark.addressDictionary;
+                NSString *name = [address objectForKey:@"Name"];
+                _localLabel.text = name;
+                
+                //根据地点获取坐标
+//                NSString *name = [[NSString alloc] initWithFormat:@"安和小区"];
+//                [_geocoder geocodeAddressString:name completionHandler:^(NSArray *place, NSError *error){
+//                    if ([place count] > 0) {
+//                        CLPlacemark *foundplace = [place objectAtIndex:0];
+//                        _localLabel.text = [NSString stringWithFormat:@"%f,%f",foundplace.location.coordinate.latitude, foundplace.location.coordinate.longitude];
+//                    }
+//                }];
+            }
+        }];
+		*/
     
 }
 
